@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto';
 import { pinoHttp } from 'pino-http';
-import logger from '#/shared/lib/pino/logger.js';
+import logger from '#src/shared/lib/pino/logger.js';
 
 const REQUEST_ID_HEADER = 'x-request-id';
 const VALID_ID = /^[\w-]{1,64}$/;

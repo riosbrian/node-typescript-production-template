@@ -1,5 +1,5 @@
-import { envs } from '#/config/envs.js';
-import { ForbiddenError } from '#/shared/errors/app-error.js';
+import { envs } from '#src/config/envs.js';
+import { ForbiddenError } from '#src/shared/errors/app-error.js';
 import cors from 'cors';
 
 export const corsGuard = cors({
