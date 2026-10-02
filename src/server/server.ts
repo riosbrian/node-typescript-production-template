@@ -4,7 +4,6 @@ import logger from "#/shared/lib/pino/logger.js";
 import app from "#/app/app.js";
 
 const server = http.createServer(app);
-let isShuttingDown = false;
 
 function start(): void {
   server.on("error", (err) => {
@@ -19,7 +18,12 @@ function start(): void {
   });
 }
 
-function shutdown(signal: string): void {
+let isShuttingDown = false;
+let shutdownExitCode = 0;
+
+function shutdown(signal: string, exitCode: number = 0): void {
+  shutdownExitCode = Math.max(shutdownExitCode, exitCode);
+
   if (isShuttingDown) return;
   isShuttingDown = true;
 
@@ -31,10 +35,11 @@ function shutdown(signal: string): void {
     }
 
     logger.info("HTTP server closed");
-    process.exit(0);
+    process.exit(shutdownExitCode);
   });
 
   setTimeout(() => {
+    logger.error("Forced shutdown after timeout");
     process.exit(1);
   }, envs.SHUTDOWN_TIMEOUT_MS).unref();
 }
