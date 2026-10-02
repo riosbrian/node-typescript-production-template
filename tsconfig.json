@@ -11,7 +11,7 @@
     "lib": ["esnext"],
     "types": ["node"],
     "paths": {
-      "#/*": ["./src/*"]
+      "#src/*": ["./src/*"]
     },
 
     // Other Outputs

@@ -1,7 +1,7 @@
 import http from 'node:http';
-import { envs } from '#/config/envs.js';
-import logger from '#/shared/lib/pino/logger.js';
-import app from '#/app/app.js';
+import { envs } from '#src/config/envs.js';
+import logger from '#src/shared/lib/pino/logger.js';
+import app from '#src/app/app.js';
 
 const server = http.createServer(app);
 

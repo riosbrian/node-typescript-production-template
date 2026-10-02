@@ -1,5 +1,5 @@
 import pino from 'pino';
-import { envs } from '#/config/envs.js';
+import { envs } from '#src/config/envs.js';
 
 const logger = pino({
   level: envs.NODE_ENV === 'test' ? 'silent' : envs.LOG_LEVEL,

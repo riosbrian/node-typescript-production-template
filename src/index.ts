@@ -1,5 +1,5 @@
-import server from '#/server/server.js';
-import logger from '#/shared/lib/pino/logger.js';
+import server from '#src/server/server.js';
+import logger from '#src/shared/lib/pino/logger.js';
 
 (() => {
   server.start();
