@@ -10,6 +10,9 @@
     "target": "esnext",
     "lib": ["esnext"],
     "types": ["node"],
+    "paths": {
+      "#/*": ["./src/*"]
+    },
 
     // Other Outputs
     "sourceMap": true,
@@ -36,5 +39,6 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true
-  }
+  },
+  "include": ["src/**/*.ts"]
 }

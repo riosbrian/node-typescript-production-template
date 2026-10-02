@@ -26,7 +26,7 @@ export default defineConfig(
   },
   {
     ...tseslint.configs.disableTypeChecked,
-    files: ['**/*.js'],
+    files: ['**/*.js', '*.config.ts'],
   },
   prettier,
 );
