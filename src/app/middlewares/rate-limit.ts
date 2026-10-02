@@ -1,0 +1,13 @@
+import { envs } from "#/config/envs.js";
+import rateLimit from "express-rate-limit";
+
+export const rateLimiter = rateLimit({
+  windowMs: envs.RATE_LIMIT_WINDOW_MS,
+  max: envs.RATE_LIMIT_MAX,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: {
+    status: "fail",
+    message: "Too many requests, try again later",
+  },
+});
