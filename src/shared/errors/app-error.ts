@@ -8,25 +8,25 @@ export class AppError extends Error {
     public readonly isOperational: boolean = true,
   ) {
     super(message);
-    this.status = `${statusCode}`.startsWith("4") ? "fail" : "error";
+    this.status = `${statusCode}`.startsWith('4') ? 'fail' : 'error';
     Error.captureStackTrace(this, this.constructor);
   }
 }
 
 export class InternalServerError extends AppError {
   constructor(cause: unknown) {
-    super("Internal Server Error", 500, cause, false);
+    super('Internal Server Error', 500, cause, false);
   }
 }
 
 export class NotFoundError extends AppError {
-  constructor(message = "Resource not found") {
+  constructor(message = 'Resource not found') {
     super(message, 404);
   }
 }
 
 export class ForbiddenError extends AppError {
-  constructor(message = "Forbidden") {
+  constructor(message = 'Forbidden') {
     super(message, 403);
   }
 }
