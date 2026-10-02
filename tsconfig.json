@@ -10,6 +10,9 @@
     "target": "esnext",
     "lib": ["esnext"],
     "types": ["node"],
+    "paths": {
+      "#/*": ["./src/*"]
+    },
 
     // Other Outputs
     "sourceMap": true,

@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "imports": {
+    "#/*": "./dist/*"
+  },
   "scripts": {
     "build": "tsc",
     "start": "node dist/server.js",

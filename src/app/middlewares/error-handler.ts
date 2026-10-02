@@ -1,5 +1,5 @@
-import { envs } from "@/config/envs.js";
-import { AppError, InternalServerError } from "@/shared/errors/app-error.js";
+import { envs } from "#/config/envs.js";
+import { AppError, InternalServerError } from "#/shared/errors/app-error.js";
 import type { ErrorRequestHandler } from "express";
 
 const hasStatusCode = (err: unknown): err is { statusCode: number } =>
