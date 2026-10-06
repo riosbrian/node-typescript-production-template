@@ -16,7 +16,7 @@ A compact, production-ready backend starter built with Node.js, TypeScript, and 
 - Structured logging and request IDs with Pino
 - Helmet, CORS, rate limiting, and centralized error handling
 - Graceful shutdown and fatal error handling
-- ESLint, Prettier, Vitest, and Supertest
+- Biome, Vitest, and Supertest
 - Multi-stage Docker image and GitHub Actions CI
 
 ## 🛠️ Requirements
@@ -46,8 +46,8 @@ The API runs at `http://localhost:3000`. Check its status at `GET /health`.
 | `pnpm build`         | Build the production bundle |
 | `pnpm start`         | Start the compiled server   |
 | `pnpm typecheck`     | Check TypeScript types      |
-| `pnpm lint`          | Run ESLint                  |
-| `pnpm format:check`  | Check formatting            |
+| `pnpm check`         | Run Biome checks            |
+| `pnpm check:fix`     | Fix Biome diagnostics       |
 | `pnpm test`          | Run tests                   |
 | `pnpm test:coverage` | Run tests with coverage     |
 
