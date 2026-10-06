@@ -8,6 +8,7 @@ A compact, production-ready backend starter built with Node.js, TypeScript, and 
 ![pnpm](https://img.shields.io/badge/pnpm-v11.10.0-F69220?style=for-the-badge&logo=pnpm&logoColor=white)
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 ![Vitest](https://img.shields.io/badge/vitest-FCC72B?style=for-the-badge&logo=vitest&logoColor=black)
+![Biome](https://img.shields.io/badge/biome-60A5FA?style=for-the-badge&logo=biome&logoColor=white)
 ![License](https://img.shields.io/badge/license-ISC-blue.svg?style=for-the-badge)
 
 ## ✨ Features
@@ -16,7 +17,8 @@ A compact, production-ready backend starter built with Node.js, TypeScript, and 
 - Structured logging and request IDs with Pino
 - Helmet, CORS, rate limiting, and centralized error handling
 - Graceful shutdown and fatal error handling
-- ESLint, Prettier, Vitest, and Supertest
+- Biome for formatting, linting, and import organization
+- Vitest and Supertest for testing and coverage
 - Multi-stage Docker image and GitHub Actions CI
 
 ## 🛠️ Requirements
@@ -40,16 +42,36 @@ The API runs at `http://localhost:3000`. Check its status at `GET /health`.
 
 ## 📜 Scripts
 
-| Command              | Description                 |
-| -------------------- | --------------------------- |
-| `pnpm dev`           | Start development mode      |
-| `pnpm build`         | Build the production bundle |
-| `pnpm start`         | Start the compiled server   |
-| `pnpm typecheck`     | Check TypeScript types      |
-| `pnpm lint`          | Run ESLint                  |
-| `pnpm format:check`  | Check formatting            |
-| `pnpm test`          | Run tests                   |
-| `pnpm test:coverage` | Run tests with coverage     |
+| Command              | Description                            |
+| -------------------- | -------------------------------------- |
+| `pnpm dev`           | Start development mode                 |
+| `pnpm build`         | Build the production bundle            |
+| `pnpm start`         | Start the compiled server              |
+| `pnpm typecheck`     | Check TypeScript types                 |
+| `pnpm check`         | Check formatting, lint, and imports    |
+| `pnpm check:fix`     | Apply safe Biome fixes                 |
+| `pnpm lint`          | Run the Biome linter                   |
+| `pnpm lint:fix`      | Apply safe linter fixes                |
+| `pnpm format`        | Format supported files                 |
+| `pnpm format:check`  | Check formatting without writing files |
+| `pnpm test`          | Run tests                              |
+| `pnpm test:coverage` | Run tests with coverage                |
+
+## 🔍 Code Quality
+
+[Biome](https://biomejs.dev/) provides formatting, linting, and import organization through the
+configuration in [`biome.json`](./biome.json). Run the complete validation before opening a pull
+request:
+
+```bash
+pnpm check
+pnpm typecheck
+pnpm test
+```
+
+Use `pnpm check:fix` to apply formatting, organize imports, and apply safe lint fixes. Unsafe fixes
+are never applied automatically. TypeScript validation remains a separate step because Biome does
+not replace the compiler.
 
 ## 🐳 Docker
 

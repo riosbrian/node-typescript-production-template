@@ -1,6 +1,6 @@
+import type { ErrorRequestHandler } from 'express';
 import { envs } from '#src/config/envs.js';
 import { AppError, InternalServerError } from '#src/shared/errors/app-error.js';
-import type { ErrorRequestHandler } from 'express';
 
 const hasStatusCode = (err: unknown): err is { statusCode: number } =>
   typeof err === 'object' &&
@@ -16,7 +16,7 @@ const normalize = (err: unknown): AppError => {
   return new InternalServerError(err);
 };
 
-export const errorHandler: ErrorRequestHandler = (err, req, res, _next) => {
+export const errorHandler: ErrorRequestHandler = (err, _req, res, _next) => {
   if (res.headersSent) return _next(err);
 
   const appError = normalize(err);

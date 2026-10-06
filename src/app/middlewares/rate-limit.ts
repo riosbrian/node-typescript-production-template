@@ -1,5 +1,5 @@
-import { envs } from '#src/config/envs.js';
 import rateLimit from 'express-rate-limit';
+import { envs } from '#src/config/envs.js';
 
 export const rateLimiter = rateLimit({
   windowMs: envs.RATE_LIMIT_WINDOW_MS,

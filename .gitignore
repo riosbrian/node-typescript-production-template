@@ -85,10 +85,15 @@ Desktop.ini
 *.sln
 
 # ==========================================
-# Temporary FIles & Process Locks
+# Temporary Files & Process Locks
 # ==========================================
 .tmp/
 .temp/
 *.pid
 *.seed
 *.pid.lock
+
+# ==========================================
+# Local Documentation
+# ==========================================
+gotchas.md
