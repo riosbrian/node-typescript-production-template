@@ -1,11 +1,11 @@
+import express, { type Express } from 'express';
+import helmet from 'helmet';
 import { corsGuard } from '#src/app/middlewares/cors.js';
 import { errorHandler } from '#src/app/middlewares/error-handler.js';
 import { httpLogger } from '#src/app/middlewares/http-logger.js';
 import { notFoundHandler } from '#src/app/middlewares/not-found.js';
 import { rateLimiter } from '#src/app/middlewares/rate-limit.js';
 import { envs } from '#src/config/envs.js';
-import express, { type Express } from 'express';
-import helmet from 'helmet';
 
 const app: Express = express();
 
